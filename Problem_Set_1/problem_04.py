@@ -9,25 +9,25 @@ comps = 0
 ###########################---- Algorithms ----###########################
 
 # Mergesort function
-def mergesort(array, i1, j):
+def mergesort(array, ii, j):
 	global comps
 	final = []
 	j1 = j2 = i = 0
 
 	while j1 < j and j2 < j:
 		comps += 1
-		if array[i1][j1] > array[i1 + 1][j2]:
-			final.insert(i, array[i1 + 1][j2])
+		if array[ii][j1] > array[ii + 1][j2]:
+			final.insert(i, array[ii + 1][j2])
 			j2 += 1
 		else:
-			final.insert(i, array[i1][j1])
+			final.insert(i, array[ii][j1])
 			j1 += 1
 		i += 1
 
 	if j1 == j:
-		final.extend(array[i1 + 1][j2:])
+		final.extend(array[ii + 1][j2:])
 	else:
-		final.extend(array[i1][j1:])
+		final.extend(array[ii][j1:])
 
 	return final
 
