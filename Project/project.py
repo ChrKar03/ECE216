@@ -25,7 +25,8 @@ class Graph:
  
         # Create a queue for BFS
         queue = []
- 
+        shortest_paths = []
+
         # Mark the source node as
         # visited and enqueue it
         queue.append(s)
@@ -42,16 +43,16 @@ class Graph:
             # If an adjacent has not been visited,
             # then mark it visited and enqueue it
             for i in self.graph[s]:
-                if visited[i] == False:
-                    queue.append(i)
-                    visited[i] = True
+                if i not in shortest_paths:
+                    shortest_paths[i] =  s + i
+                    queue.append(i)	
  
 # Driver code
 if __name__ == '__main__':
  
     # Create a graph given in
     # the above diagram
-    g = Graph(input_file = sys.argv[1])
+    g = Graph(input_file = 'input.txt')
  
     print("Following is Breadth First Traversal"
           " (starting from vertex 2)")
